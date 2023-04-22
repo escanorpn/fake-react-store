@@ -9,7 +9,7 @@ const Navbar = ({search,handleSearch,searchProducts,cart,openCart,toggleCart,rem
     <div className='relative'>
    <div className='w-full sticky top-0 bg-slate-900 h-[60px] md:h-[50px]  flex justify-between items-center px-2 md:px-4  font-frank z-20'>
         <div>
-            <Link to='/'><BsShopWindow className='md:hidden text-2xl text-slate-50 mr-2'/> <span className='hidden md:block text-md font-semibold text-slate-50 font-ibm'>Fake Store</span></Link>
+            <Link to='/'><BsShopWindow className='md:hidden text-2xl text-slate-50 mr-2'/> <span className='hidden md:block text-md font-semibold text-slate-50 font-ibm'>My Store</span></Link>
         </div>  
         <div className='w-full md:w-[40%] flex justify-center items-center'><input type="search" className='bg-slate-100 px-1 w-full focus:border-none focus:bg-slate-200 focus:outline-none' value={search}  name="search" onChange={handleSearch } /><BsSearch className='hidden md:block text-2xl cursor-pointer ml-2 text-slate-300' onClick={()=>searchProducts(search)}/></div>       
        <nav>
