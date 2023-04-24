@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import axios from './helpers/apiClient'
 import Details from './pages/Details'
+import Checkout from'./components/checkout'
 
 const App = () => { 
  
@@ -48,6 +49,9 @@ const[backup,setBackUp]=useState([])
     }
 
     const[cart,setCart]=useState([])
+   const clearFromCart=()=>{
+    setCart([]);
+   }
     //add to cart
     const addToCart = (item) => {
         // check if item already in cart
@@ -112,10 +116,11 @@ const[backup,setBackUp]=useState([])
 
   return (
     <BrowserRouter>
-    <Navbar search={search} handleSearch ={handleSearch} cart={cart} openCart={openCart} toggleCart={toggleCart} removeFromCart={removeFromCart } incrementItem={incrementItem} total={total} />
+    <Navbar search={search} handleSearch ={handleSearch} cart={cart} openCart={openCart} toggleCart={toggleCart} removeFromCart={removeFromCart } clearFromCart={clearFromCart} incrementItem={incrementItem} total={total} />
     <Routes>
       <Route path="/" element={<Home items={items} isLoading={isLoading}  fetchProductByCategory={fetchProductByCategory} fetchProducts={fetchProducts} addToCart={addToCart} showLoading={showLoading} />}/>
       <Route path="/details/:id" element={<Details addToCart={addToCart} showLoading={showLoading}/>}/>
+      <Route path="/checkout" element={<Checkout />}/>
     </Routes>
     </BrowserRouter>
   )

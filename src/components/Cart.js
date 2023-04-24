@@ -2,7 +2,14 @@ import React,{useState,useEffect} from 'react'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {ImSad} from 'react-icons/im'
 
-const Cart = ({openCart,toggleCart,cart,removeFromCart,incrementItem,total }) => {
+import { Link } from "react-router-dom";
+
+
+ 
+import Button from "@mui/material/Button";
+import { Box, Typography } from "@mui/material";
+
+const Cart = ({openCart,toggleCart,cart,removeFromCart,clearFromCart,incrementItem,total }) => {
 
    
 
@@ -36,6 +43,44 @@ const Cart = ({openCart,toggleCart,cart,removeFromCart,incrementItem,total }) =>
                     ))}
               
           
+              {/* <div component="div" className="btn-container">
+              <Button
+                variant="contained"
+                color="success"
+              >
+                  <Link to="/checkout">Check Out</Link>
+              
+              </Button>
+              <div
+                variant="text"
+                onClick={() => clearFromCart()}
+                color="error"
+                sx={{ fontWeight: "bold" }}
+              >
+                Clear
+              </div>
+            </div> */}
+
+<Box component="div" className="btn-container">
+              <Button
+                variant="contained"
+                color="success"
+                onClick={() => {toggleCart()
+                  clearFromCart()
+                }}
+              >
+                 <Link to="/checkout">Check Out</Link>
+              
+              </Button>
+              <Button
+                variant="text"
+                onClick={() => clearFromCart()}
+                color="error"
+                sx={{ fontWeight: "bold" }}
+              >
+                Clear
+              </Button>
+            </Box>
        </div>
     </div>
     </>
